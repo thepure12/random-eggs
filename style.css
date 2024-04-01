@@ -1,0 +1,24 @@
+.easter-egg {
+  font-family: "Arial", sans-serif;
+  position: absolute;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.go-brr {
+  font-family: "Arial", sans-serif;
+  position: absolute;
+  font-size: 12px;
+  cursor: pointer;
+  z-index: 1000;
+  bottom: 0;
+  right: 0;
+  margin: .5rem;
+  background-color: slateblue;
+  border-radius: 3px;
+  border: 1px solid slateblue;
+  color: white;
+  padding-block: .25rem;
+  padding-inline: .4rem;
+}
