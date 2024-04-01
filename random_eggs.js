@@ -1,5 +1,5 @@
 function addEasterEgg() {
-    const easterEggs = ["🐰", "🥚", "🌷", "🐣", "🍫"];
+    const easterEggs = ["🐰", "🥚", "🌷", "🐣", "🍫", "✝️", "🩸", "🪨"];
     const randomEgg = easterEggs[Math.floor(Math.random() * easterEggs.length)];
     console.log(randomEgg)
     
