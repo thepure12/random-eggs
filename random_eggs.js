@@ -1,3 +1,5 @@
+let goBrrAdded = false;
+
 function addEasterEgg(amount = 1) {
   const easterEggs = ["🐰", "🥚", "🌷", "🐣", "🍫", "✝️", "🩸", "🪨"];
   // console.log(randomEgg)
@@ -19,23 +21,26 @@ function addEasterEgg(amount = 1) {
 
     eggElement.addEventListener("click", () => {
       eggElement.remove();
+      addGoBrrButton();
     });
 
     document.body.appendChild(eggElement);
   }
 }
 
-function setEggInterval(interval=3000, amountPerInterval=1) {
-  // Add Easter eggs every interval milliseconds
+function setEggInterval(interval = 3000, amountPerInterval = 1) {
+  // Add Easter eggs every 3 seconds
   setInterval(addEasterEgg, interval, amountPerInterval);
 }
 
 function addGoBrrButton() {
+  if (goBrrAdded) return;
   const brrElement = document.createElement("button");
-  brrElement.innerText = "Go Brr!"
+  brrElement.innerText = "Go Brr!";
   brrElement.classList.add("go-brr");
-  brrElement.addEventListener("click",()=>{
-    setEggInterval(1, 10)
-  })
+  brrElement.addEventListener("click", () => {
+    setEggInterval(1, 10);
+  });
   document.body.appendChild(brrElement);
+  goBrrAdded = true;
 }
