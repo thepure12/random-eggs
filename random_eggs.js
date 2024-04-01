@@ -1,14 +1,14 @@
 function addEasterEgg() {
     const easterEggs = ["🐰", "🥚", "🌷", "🐣", "🍫", "✝️", "🩸", "🪨"];
     const randomEgg = easterEggs[Math.floor(Math.random() * easterEggs.length)];
-    console.log(randomEgg)
+    // console.log(randomEgg)
     
     const eggElement = document.createElement('span');
     eggElement.classList.add('easter-egg');
     eggElement.innerHTML = randomEgg;
 
-    const maxX = window.innerWidth - 50;
-    const maxY = window.innerHeight - 50;
+    const maxX = document.body.clientWidth - 50;
+    const maxY = document.body.clientHeight - 50;
 
     const randomX = Math.floor(Math.random() * maxX);
     const randomY = Math.floor(Math.random() * maxY);
