@@ -1,4 +1,29 @@
 let goBrrAdded = false;
+let _dreamloCode = "";
+let _user = "";
+
+function setUser(user) {
+  _user = user;
+}
+
+function setDreamloCode(code) {
+  _dreamloCode = code;
+}
+
+function getDreamloUrl() {
+  return "https://api.allorigins.win/get?url=" + encodeURIComponent(`http://dreamlo.com/lb/${_dreamloCode}`);
+}
+
+async function addPoint() {
+  const scoreUrl = `${getDreamloUrl()}/pipe-get/${_user}`;
+  const res = await fetch(scoreUrl, {cache: "no-cache"});
+  const scoreRecord = await res.text();
+  const score = parseInt(scoreRecord.split("|")[1]) || 0
+  console.log(score)
+  const url = `${getDreamloUrl()}/add/${_user}/${score + 1}`;
+  console.log(url);
+  await fetch(url);
+}
 
 function addEasterEgg(amount = 1) {
   const easterEggs = ["🐰", "🥚", "🌷", "🐣", "🍫", "✝️", "🩸", "🪨"];
@@ -21,6 +46,7 @@ function addEasterEgg(amount = 1) {
 
     eggElement.addEventListener("click", () => {
       eggElement.remove();
+      addPoint()
       addGoBrrButton();
     });
 
